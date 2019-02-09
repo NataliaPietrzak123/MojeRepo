@@ -1,0 +1,73 @@
+import re 
+
+def f1(a, b=0):
+    return a ** 2 + b
+
+def f2(a):
+    if len(a) == 0:
+        return "BUUUUM"
+    else:
+        return a[0]
+
+def f3(a):
+    if a == 1:
+        return "jeden"
+    elif a == 2:
+        return "dwa"
+    elif a == 3:
+        return "trzy"
+    else:
+        return "other"
+
+def f4(a,b=None):
+    if b == None:
+        return "%s ma kota" % a
+    else:
+        return "%s ma kota %s" % (a, "i " + b)
+
+def f5(a, b=1):
+    a = [x for x in range(0, a, b)]
+    return a
+
+def f6(a,b):
+    return a * b
+
+def f7(a):
+    b=str(a)
+
+    if re.search('[<][a-z]+[>]', b):
+        return "tag poczatkowy"
+    elif re.search('[</][a-z]+[>]', b):
+        return "tag koncowy"
+    elif re.search('[A-Z][a-z]+' ,b):
+        return "zdanie"
+    elif re.search('[a-z]+',b):
+        return "slowo"
+    elif re.search('-[0-9][0-9]+', b):
+        return "liczba_ze_znakiem"
+    elif re.search('[0-9][0-9]+', b):
+        return "liczba"
+    elif re.search('[0-9]', b):
+        return "cyfra"
+
+def f8(a,b):
+    if a in b:
+        return "true"
+    else:
+        return "false"
+
+def f9(a,b):
+    if a > 0 and b > 0:
+        return "dodatnie"
+    elif a<0 and b<0:
+        return "ujemne"
+    elif (a>0 and b<0) or (a<0 and b>0):
+        return "rozne znaki"
+    elif a==0 or b==0:
+        return "jest zero"
+
+def f10(a,b):
+    if a == b:
+        return "rowne"
+    else:
+        return "rozne"
