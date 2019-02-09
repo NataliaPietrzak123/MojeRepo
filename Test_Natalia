@@ -1,0 +1,168 @@
+#! /usr/bin/python
+
+import unittest
+import skrypt1
+import random
+
+class TestStringMethods(unittest.TestCase):
+    def test_test(self):
+        self.assertTrue(True)
+
+    def test_f1_1(self):
+        w1 =skrypt1.f1(0)
+        self.assertEqual(w1,0)
+
+    def test_f1_2(self):
+        w1 =skrypt1.f1(1)
+        self.assertEqual(w1,1)
+
+    def test_f1_3(self):
+        w1 =skrypt1.f1(2)
+        self.assertEqual(w1,4)
+
+    def test_f1_4(self):
+        w1 =skrypt1.f1(2, 1)
+        self.assertEqual(w1,5)
+
+    def test_f1_5(self):
+        w1 =skrypt1.f1(2, 3)
+        self.assertEqual(w1,7)
+
+    def test_f2_1(self):
+        w1 = skrypt1.f2("ala")
+        self.assertEqual(w1,"a")
+
+    def test_f2_2(self):
+        w1 = skrypt1.f2([1,2,3])
+        self.assertEqual(w1,1)
+
+    def test_f2_3(self):
+        w1 = skrypt1.f2([])
+        self.assertEqual(w1,"BUUUUM")
+
+    def test_f3_1(self):
+        w1 = skrypt1.f3(1)
+        self.assertEqual(w1,"jeden")
+
+    def test_f3_2(self):
+        w1 = skrypt1.f3(2)
+        self.assertEqual(w1,"dwa")
+
+    def test_f3_3(self):
+        w1 = skrypt1.f3(3)
+        self.assertEqual(w1,"trzy")
+
+    def test_f3_4(self):
+        w1 = skrypt1.f3(random.choice(range(4,1000)))
+        self.assertEqual(w1,"other")
+
+    def test_f4_1(self):
+        w1 = skrypt1.f4("ala")
+        self.assertEqual(w1,"ala ma kota")
+
+    def test_f4_2(self):
+        w1 = skrypt1.f4("kot")
+        self.assertEqual(w1,"kot ma kota")
+
+    def test_f4_3(self):
+        w1 = skrypt1.f4("kot", "psa")
+        self.assertEqual(w1,"kot ma kota i psa")
+
+    def test_f5_1(self):
+        w1 = skrypt1.f5(0)
+        self.assertEqual(w1,[])
+
+    def test_f5_2(self):
+        w1 = skrypt1.f5(1)
+        self.assertEqual(w1,[0])
+
+    def test_f5_3(self):
+        w1 = skrypt1.f5(2)
+        self.assertEqual(w1,[0, 1])
+
+    def test_f5_4(self):
+        w1 = skrypt1.f5(7)
+        self.assertEqual(w1,[0, 1, 2, 3, 4, 5, 6])
+
+    def test_f5_5(self):
+        w1 = skrypt1.f5(7,2)
+        self.assertEqual(w1,[0, 2, 4, 6])
+
+    def test_f5_6(self):
+        w1 = skrypt1.f5(17,2)
+        self.assertEqual(w1,[0, 2, 4, 6,8,10,12,14,16])
+
+    def test_f5_7(self):
+        w1 = skrypt1.f5(17,5)
+        self.assertEqual(w1,[0, 5, 10, 15])
+
+    def test_f6_1(self):
+        w1 = skrypt1.f6(1,"*")
+        self.assertEqual(w1,"*")
+
+    def test_f6_2(self):
+        w1 = skrypt1.f6(7,"*")
+        self.assertEqual(w1,"*******")
+
+    def test_f7_1(self):
+        w1 = skrypt1.f7("ala")
+        self.assertEqual(w1,"slowo")
+
+    def test_f7_2(self):
+        w1 = skrypt1.f7(1)
+        self.assertEqual(w1,"cyfra")
+
+    def test_f7_3(self):
+        w1 = skrypt1.f7(11111)
+        self.assertEqual(w1,"liczba")
+
+    def test_f7_4(self):
+        w1 = skrypt1.f7(-11111)
+        self.assertEqual(w1,"liczba_ze_znakiem")
+
+    def test_f7_5(self):
+        w1 = skrypt1.f7("Ala ma kota.")
+        self.assertEqual(w1,"zdanie")
+
+    def test_f7_6(self):
+        w1 = skrypt1.f7("<taaag>")
+        self.assertEqual(w1,"tag poczatkowy")
+
+    def test_f7_7(self):
+        w1 = skrypt1.f7("</taaag>")
+        self.assertEqual(w1,"tag koncowy")
+
+    def test_f8_1(self):
+        w1 = skrypt1.f8("kot", "ala ma kota")
+        self.assertEqual(w1,"true")
+
+    def test_f8_2(self):
+        w1 = skrypt1.f8("pies", "ala ma kota")
+        self.assertEqual(w1,"false")
+
+    def test_f9_1(self):
+        w1 = skrypt1.f9(1, 2)
+        self.assertEqual(w1,"dodatnie")
+
+    def test_f9_2(self):
+        w1 = skrypt1.f9(-1, -2)
+        self.assertEqual(w1,"ujemne")
+
+    def test_f9_3(self):
+        w1 = skrypt1.f9(-1, 1)
+        self.assertEqual(w1,"rozne znaki")
+
+    def test_f9_4(self):
+        w1 = skrypt1.f9(-1, 0)
+        self.assertEqual(w1,"jest zero")
+
+    def test_f10_1(self):
+        w1 = skrypt1.f10(1, 1)
+        self.assertEqual(w1,"rowne")
+
+    def test_f10_2(self):
+        w1 = skrypt1.f10(1, 2)
+        self.assertEqual(w1,"rozne")
+
+if __name__ == '__main__':
+    unittest.main()
